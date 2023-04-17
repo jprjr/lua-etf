@@ -391,7 +391,6 @@ local binary = encoder:encode({ a = 1, b = 2 })
 * `list_mt` - the `list` userdata's metatable.
 * `map_mt` - the `map` userdata's metatable.
 * `new_fun_mt` - the `new_fun` userdata's metatable.
-* `numsize` - the size of a Lua number, in bytes.
 * `pid_mt` - the `pid` userdata's metatable.
 * `port_mt` - the `port` userdata's metatable.
 * `reference_mt	table` - the `reference` userdata's metatable.
@@ -404,3 +403,7 @@ local binary = encoder:encode({ a = 1, b = 2 })
 * `_VERSION_MAJOR` - the module's major version as a number.
 * `_VERSION_MINOR` - the module's minor version as a number.
 * `_VERSION_PATCH` - the module's patch version as a number.
+
+### Misc
+
+* `numsize` - the size of a Lua number, in bytes.
