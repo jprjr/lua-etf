@@ -263,6 +263,8 @@ As far as I can tell, `131` is the only version in existence.
 function that accepts the value to be encoded, and a boolean indicating if
 the value is a table key.
 
+### Lua Types
+
 Here's how various Lua types are mapped to Erlang Term Format by default:
 
 | Supported | Lua Type | Erlang Type |
@@ -273,6 +275,19 @@ Here's how various Lua types are mapped to Erlang Term Format by default:
 | [x] | `string` | `BINARY_EXT` |
 | [x] | `table` | `NIL_EXT`, `LIST_EXT`, or `MAP_EXT` |
 | [x] | `userdata` | (see details below) |
+
+
+### A note on tables
+
+A table is determined to either be map-like or list-like. If a map
+has integer keys starting at 1, with no gaps, it's considered to be
+list-like and will be encoded as a `LIST_EXT`.
+
+Otherwise, the table is considered map-like, and will be encoded
+as a `MAP_EXT`. All table keys will be encoded as strings (specifically
+`BINARY_EXT`). This is meant to be compatible with [erlpack](https://github.com/discord/erlpack).
+
+### Userdata types
 
 `etf` allows creating various userdata to force a specific encoding:
 
