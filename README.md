@@ -279,9 +279,13 @@ Here's how various Lua types are mapped to Erlang Term Format by default:
 
 ### A note on tables
 
-A table is determined to either be map-like or list-like. If a map
+A table is determined to either be map-like or list-like. If a table
 has integer keys starting at 1, with no gaps, it's considered to be
 list-like and will be encoded as a `LIST_EXT`.
+
+If a table has no keys at all, it will be treated as a list-type
+with zero items and encoded as a `NIL_EXT` (Erlang's version of an
+empty list).
 
 Otherwise, the table is considered map-like, and will be encoded
 as a `MAP_EXT`. All table keys will be encoded as strings (specifically
