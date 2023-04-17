@@ -1,0 +1,4 @@
+.lua-version
+*.so
+*.beam
+erl_crash.dump
