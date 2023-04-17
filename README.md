@@ -393,7 +393,7 @@ local binary = encoder:encode({ a = 1, b = 2 })
 * `new_fun_mt` - the `new_fun` userdata's metatable.
 * `pid_mt` - the `pid` userdata's metatable.
 * `port_mt` - the `port` userdata's metatable.
-* `reference_mt	table` - the `reference` userdata's metatable.
+* `reference_mt` - the `reference` userdata's metatable.
 * `string_mt` - a `string` userdata's metatable.
 * `tuple_mt` - the `tuple` userdata's metatable.
 
