@@ -4188,10 +4188,10 @@ int luaopen_etf(lua_State *L) {
 
     if(luaL_newmetatable(L,etf_integer_mt)) {
         luaL_setfuncs(L,etf_bigint_metamethods,0);
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
+        /* on newer lua versions, luaL_newmetatable automatically sets __name,
+         * we just override it so it's the same across all versions */
         lua_pushstring(L,etf_integer_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"integer_mt");
 
@@ -4203,10 +4203,8 @@ int luaopen_etf(lua_State *L) {
         lua_getglobal(L,"tostring");
         lua_pushcclosure(L, etf_float__concat,1);
         lua_setfield(L,-2,"__concat");
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_float_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"float_mt");
 
@@ -4214,10 +4212,8 @@ int luaopen_etf(lua_State *L) {
         lua_newtable(L);
         luaL_setfuncs(L,etf_131_decoder_methods,0);
         lua_setfield(L,-2,"__index");
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_131_decoder_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"decoder_131_mt");
 
@@ -4225,109 +4221,83 @@ int luaopen_etf(lua_State *L) {
         lua_newtable(L);
         luaL_setfuncs(L,etf_131_encoder_methods,0);
         lua_setfield(L,-2,"__index");
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_131_encoder_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"encoder_131_mt");
 
     if(luaL_newmetatable(L,etf_atom_mt)) {
         luaL_setfuncs(L,etf_atom_metamethods,0);
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_atom_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"atom_mt");
 
     if(luaL_newmetatable(L,etf_string_mt)) {
         luaL_setfuncs(L,etf_string_metamethods,0);
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_string_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"string_mt");
 
     if(luaL_newmetatable(L,etf_binary_mt)) {
         luaL_setfuncs(L,etf_binary_metamethods,0);
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_binary_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"binary_mt");
 
     if(luaL_newmetatable(L,etf_port_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_port_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"port_mt");
 
     if(luaL_newmetatable(L,etf_pid_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_pid_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"pid_mt");
 
     if(luaL_newmetatable(L,etf_export_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_export_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"export_mt");
 
     if(luaL_newmetatable(L,etf_reference_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_reference_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"reference_mt");
 
     if(luaL_newmetatable(L,etf_tuple_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_tuple_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"tuple_mt");
 
     if(luaL_newmetatable(L,etf_list_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_list_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"list_mt");
 
     if(luaL_newmetatable(L,etf_map_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_map_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"map_mt");
 
     if(luaL_newmetatable(L,etf_new_fun_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_new_fun_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"new_fun_mt");
 
     if(luaL_newmetatable(L,etf_fun_mt)) {
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 503
         lua_pushstring(L,etf_fun_mt);
         lua_setfield(L,-2,"__name");
-#endif
     }
     lua_setfield(L,-2,"fun_mt");
 
