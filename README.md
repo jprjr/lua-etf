@@ -380,10 +380,10 @@ local binary = encoder:encode({ a = 1, b = 2 })
 
 ### Metatables
 
-* `atom_mt` - the atom userdata's metatable.
+* `atom_mt` - the `atom` userdata's metatable.
 * `integer_mt` - the `integer` userdata's metatable.
 * `float_mt` - the `float` userdata's metatable.
-* `binary_mt` - the `integer` userdata's metatable.
+* `binary_mt` - the `binary` userdata's metatable.
 * `decoder_131_mt` - the `decoder` userdata's metatable.
 * `encoder_131_mt` - the `encoder` userdata's metatable.
 * `export_mt` - the `export` userdata's metatable.
