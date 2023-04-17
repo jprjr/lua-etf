@@ -41,6 +41,7 @@ release: lib
 	rsync -a --exclude='*.so' csrc/ dist/lua-etf-$(VERSION)/csrc/
 	rsync -a LICENSE dist/lua-etf-$(VERSION)/LICENSE
 	rsync -a README.md dist/lua-etf-$(VERSION)/README.md
+	rsync -a CMakeLists.txt dist/lua-etf-$(VERSION)/CMakeLists.txt
 	sed 's/@VERSION@/$(VERSION)/g' < etf-template.rockspec > dist/lua-etf-$(VERSION)/etf-$(VERSION)-1.rockspec
 	cd dist && tar -c -f lua-etf-$(VERSION).tar lua-etf-$(VERSION)
 	cd dist && gzip -k lua-etf-$(VERSION).tar
