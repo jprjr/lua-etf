@@ -43,7 +43,7 @@ Here's how various Erlang types are mapped to Lua by default:
 | [ ] | `ATOM_CACHE_REF` |  |
 | [x] | `ZLIB` | (automatically decompressed and decoded) |
 | [x] | `SMALL_INTEGER_EXT` | `number` |
-| [x] | `INTEGER_EXT` | `number` or `etf.integer` (based value) |
+| [x] | `INTEGER_EXT` | `number` or `etf.integer` (based on value) |
 | [x] | `FLOAT_EXT` | `number` |
 | [x] | `PORT_EXT` | `table` |
 | [x] | `NEW_PORT_EXT` | `table` |
@@ -56,7 +56,7 @@ Here's how various Erlang types are mapped to Lua by default:
 | [x] | `NIL_EXT` | `table` (empty) |
 | [x] | `STRING_EXT` | `string` |
 | [x] | `LIST_EXT` | `table` |
-| [x] | `BINARY` | `string` |
+| [x] | `BINARY_EXT` | `string` |
 | [x] | `SMALL_BIG_EXT` | `number` or `etf.integer` |
 | [x] | `LARGE_BIG_EXT` | `number` or `etf.integer` |
 | [x] | `REFERENCE_EXT` | `table` |
@@ -268,7 +268,7 @@ Here's how various Lua types are mapped to Erlang Term Format by default:
 | Supported | Lua Type | Erlang Type |
 |-----------|----------|-------------|
 | [x] | `nil` | a `nil` `SMALL_ATOM_UTF8_EXT` |
-| [x] | `number` | `NEW_FLOAT_EXT, `SMALL_INTEGER_EXT`, `INTEGER_EXT`, `SMALL_BIG_EXT`, `LARGE_BIG_EXT` (as appropriate) |
+| [x] | `number` | `NEW_FLOAT_EXT`, `SMALL_INTEGER_EXT`, `INTEGER_EXT`, `SMALL_BIG_EXT`, `LARGE_BIG_EXT` (as appropriate) |
 | [x] | `boolean` | `SMALL_ATOM_UTF8_EXT` |
 | [x] | `string` | `BINARY_EXT` |
 | [x] | `table` | `NIL_EXT`, `LIST_EXT`, or `MAP_EXT` |
